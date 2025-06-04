@@ -12,17 +12,17 @@ if __name__ == "__main__":
     print("Gerando dados de vendas...\n")
     dadosVendas = buscarDadosVendas()
     nome = "vendas"
-    verDados(dadosVendas,nome)
+    verDados(dadosVendas, nome)
 
     print("Gerando dados de clima...\n")
     dadosClima = buscarDadosClima()
     nome = "clima"
-    verDados(dadosClima,nome)
+    verDados(dadosClima, nome)
 
     print("Gerando dados de finanças...\n")
     dadosFinancas = buscarDadosFinancas()
     nome = "finanças"
-    verDados(dadosFinancas,nome)
+    verDados(dadosFinancas, nome)
 
     switch(dadosVendas, dadosClima, dadosFinancas)
 
