@@ -3,11 +3,13 @@ import matplotlib.pyplot as plt # type: ignore
 import seaborn as sns # type: ignore
 import numpy as np
 
-def analisar_e_plotar(dados, titulo):
-    curt = kurtosis(dados)
+def analisarEPlotar(dados, titulo):
+    dados_np = np.array(dados, dtype=np.float64)  # converte explicitamente para float
+    curt = kurtosis(dados_np)
+
     plt.figure(figsize=(8, 5))
-    sns.histplot(dados, kde=True, color='skyblue', bins=30, stat='density')
-    plt.axvline(np.mean(dados), color='red', linestyle='--', label='Média')
+    sns.histplot(dados_np, kde=True, color='skyblue', bins=30, stat='density')
+    plt.axvline(np.mean(dados_np), color='red', linestyle='--', label='Média')
     plt.title(f'{titulo}\nCurtose: {curt:.2f}')
     plt.xlabel('Valor')
     plt.ylabel('Densidade')
@@ -15,3 +17,4 @@ def analisar_e_plotar(dados, titulo):
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+

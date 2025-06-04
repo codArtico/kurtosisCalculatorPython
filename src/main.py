@@ -1,11 +1,35 @@
-from simulatedData import gerar_dados_vendas, gerar_dados_clima, gerar_dados_financas
-from graphics import analisar_e_plotar
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from model.fetchData import buscarDadosClima, buscarDadosFinancas, buscarDadosVendas
+
+from model.initBD import initDB
+from utils.mainUtils import verDados, switch
 
 if __name__ == "__main__":
-    dados_vendas = gerar_dados_vendas()
-    dados_clima = gerar_dados_clima()
-    dados_financas = gerar_dados_financas()
+    initDB()
 
-    analisar_e_plotar(dados_vendas, "A. Vendas e Negócios")
-    analisar_e_plotar(dados_clima, "B. Clima (Temperaturas)")
-    analisar_e_plotar(dados_financas, "C. Finanças (Retornos Diários)")
+    print("Gerando dados de vendas...\n")
+    dadosVendas = buscarDadosVendas()
+    nome = "vendas"
+    verDados(dadosVendas,nome)
+
+    print("Gerando dados de clima...\n")
+    dadosClima = buscarDadosClima()
+    nome = "clima"
+    verDados(dadosClima,nome)
+
+    print("Gerando dados de finanças...\n")
+    dadosFinancas = buscarDadosFinancas()
+    nome = "finanças"
+    verDados(dadosFinancas,nome)
+
+    switch(dadosVendas, dadosClima, dadosFinancas)
+
+        
+
+
+
+    
+    
+    
