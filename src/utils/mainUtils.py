@@ -14,15 +14,16 @@ def switch(dadosVendas, dadosClima, dadosFinancas):
     print('1 - Analisar e plotar dados de vendas')
     print('2 - Analisar e plotar dados de clima')
     print('3 - Analisar e plotar dados de financas')
-
+    print(" ")
+    
     key = int(input("Digite uma opção: "))
 
     while (key == 1 or key == 2 or key==3):
         if key == 1:
-            analisarEPlotar(dadosVendas, "A. Vendas e Negócios")
+            analisarEPlotar(dadosVendas, "Loja", "Unidades")
         elif key == 2:
-            analisarEPlotar(dadosClima, "B. Clima (Temperaturas)")
+            analisarEPlotar(dadosClima, "Clima", "Temperatura °C")
         elif key == 3:
-            analisarEPlotar(dadosFinancas, "C. Finanças (Retornos Diários)")
+            analisarEPlotar(dadosFinancas, "Bolsa de valores", "Retornos")
 
         key = int(input("Digite uma opção: "))
