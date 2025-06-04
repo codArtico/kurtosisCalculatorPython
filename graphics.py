@@ -1,0 +1,17 @@
+from scipy.stats import kurtosis # type: ignore
+import matplotlib.pyplot as plt # type: ignore
+import seaborn as sns # type: ignore
+import numpy as np
+
+def analisar_e_plotar(dados, titulo):
+    curt = kurtosis(dados)
+    plt.figure(figsize=(8, 5))
+    sns.histplot(dados, kde=True, color='skyblue', bins=30, stat='density')
+    plt.axvline(np.mean(dados), color='red', linestyle='--', label='Média')
+    plt.title(f'{titulo}\nCurtose: {curt:.2f}')
+    plt.xlabel('Valor')
+    plt.ylabel('Densidade')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
