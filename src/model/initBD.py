@@ -39,12 +39,12 @@ def initDB():
     """)
     conn.commit()
 
-    vendas = gerar_dados_vendas()
+    vendas = gerarDadosVendas()
 
-    temperaturas = gerar_dados_clima()
+    temperaturas = gerarDadosClima()
     periodos = ['verao']*100 + ['inverno']*100
 
-    retornos = gerar_dados_financas()
+    retornos = gerarDadosFinancas()
 
     # Vendas
     for valor in vendas:

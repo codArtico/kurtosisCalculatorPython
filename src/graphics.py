@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt # type: ignore
 import seaborn as sns # type: ignore
 import numpy as np
 
-def analisar_e_plotar(dados, titulo):
+def analisarEPlotar(dados, titulo):
     dados_np = np.array(dados, dtype=np.float64)  # converte explicitamente para float
     curt = kurtosis(dados_np)
 
