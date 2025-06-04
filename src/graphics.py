@@ -1,5 +1,6 @@
 from scipy.stats import kurtosis # type: ignore
 import matplotlib.pyplot as plt # type: ignore
+#from matplotlib.ticker import FuncFormatter # type: ignore
 import seaborn as sns # type: ignore
 import numpy as np
 
@@ -10,6 +11,7 @@ def analisarEPlotar(dados, titulo, tipo):
     plt.figure(figsize=(8, 5))
     sns.histplot(dados_np, kde=True, color='skyblue', bins=30, stat='density')
     plt.axvline(np.mean(dados_np), color='red', linestyle='--', label='Média')
+    # plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda y, _: f'{y * 100:.0f}%')) // para mostrar percentual de dados
     plt.title(f'{titulo}\nCurtose: {curt:.2f}')
     plt.xlabel(tipo)
     plt.ylabel('Densidade')
